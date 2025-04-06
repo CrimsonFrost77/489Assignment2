@@ -55,7 +55,7 @@ fun BroadcastReceiverScreen(navController: NavController, openDrawer: () -> Unit
                         onValueChange = {},
                         label = { Text("Broadcast Type") },
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
-                        modifier = Modifier.menuAnchor(type, enabled)
+//                        modifier = Modifier.menuAnchor(, true)
                     )
 
                     ExposedDropdownMenu(
