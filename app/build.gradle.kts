@@ -62,4 +62,8 @@ dependencies {
     implementation(libs.androidx.activity.compose.v181)
     implementation(libs.ui.tooling.preview)
     implementation(libs.androidx.foundation)
+    implementation(libs.coil.compose)
+    implementation (libs.androidx.localbroadcastmanager)
+
+
 }

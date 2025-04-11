@@ -1,7 +1,5 @@
 package com.example.assignment2.ui.broadcast
 
-import androidx.compose.runtime.Composable
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -35,16 +33,16 @@ fun BroadcastReceiverScreen(navController: NavController, openDrawer: () -> Unit
             )
         }
     ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .padding(paddingValues)
-                    .fillMaxSize()
-                    .padding(16.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-    
-                // Spinner (Dropdown)
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // Wrap dropdown in Box to handle overlap
+            Box(modifier = Modifier.fillMaxWidth()) {
                 ExposedDropdownMenuBox(
                     expanded = expanded,
                     onExpandedChange = { expanded = !expanded }
@@ -55,14 +53,16 @@ fun BroadcastReceiverScreen(navController: NavController, openDrawer: () -> Unit
                         onValueChange = {},
                         label = { Text("Broadcast Type") },
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
-//                        modifier = Modifier.menuAnchor(, true)
+                        modifier = Modifier
+                            .menuAnchor()
+                            .fillMaxWidth()
                     )
 
                     ExposedDropdownMenu(
                         expanded = expanded,
                         onDismissRequest = { expanded = false }
                     ) {
-                        BroadcastType.values().forEach { type ->
+                        BroadcastType.entries.forEach { type ->
                             DropdownMenuItem(
                                 text = { Text(type.title) },
                                 onClick = {
@@ -73,22 +73,23 @@ fun BroadcastReceiverScreen(navController: NavController, openDrawer: () -> Unit
                         }
                     }
                 }
+            }
 
-                Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
-                Button(
-                    onClick = {
-                        selectedType?.let {
-                            when (it) {
-                                BroadcastType.Custom -> navController.navigate("custom_input_screen")
-                                BroadcastType.Battery -> navController.navigate("battery_receiver_screen")
-                            }
+            Button(
+                onClick = {
+                    selectedType?.let {
+                        when (it) {
+                            BroadcastType.Custom -> navController.navigate("custom_input_screen")
+                            BroadcastType.Battery -> navController.navigate("battery_receiver_screen")
                         }
-                    },
-                    enabled = selectedType != null
-                ) {
-                    Text("Continue")
-                }
+                    }
+                },
+                enabled = selectedType != null
+            ) {
+                Text("Continue")
             }
         }
+    }
 }

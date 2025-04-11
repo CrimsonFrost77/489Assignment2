@@ -40,9 +40,14 @@ fun NavGraph(navController: NavHostController, openDrawer: () -> Unit) {
         composable("battery_receiver_screen") {
             BatteryReceiverScreen(navController = navController)
         }
-        composable("custom_receiver_screen") {
-            CustomReceiverScreen()
+        composable("custom_receiver_screen/{message}") { backStackEntry ->
+            val message = backStackEntry.arguments?.getString("message") ?: ""
+            CustomReceiverScreen(message = message)
         }
+
+
+
+
 
     }
 }

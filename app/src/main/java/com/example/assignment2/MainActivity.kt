@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.example.assignment2.navigation.NavGraph
@@ -29,7 +30,7 @@ enum class DrawerDestinations(val route: String, val title: String) {
     Audio("audio", "Audio Player")
 }
 
-// 🧱 Main App Setup
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun AssignmentApp() {
     val navController = rememberNavController()
@@ -62,3 +63,5 @@ fun AssignmentApp() {
         })
     }
 }
+
+
