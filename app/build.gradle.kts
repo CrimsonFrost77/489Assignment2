@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.foundation)
     implementation(libs.coil.compose)
     implementation (libs.androidx.localbroadcastmanager)
+    implementation(libs.coil.compose.v222)
 
 
 }

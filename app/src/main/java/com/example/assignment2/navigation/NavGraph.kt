@@ -12,6 +12,8 @@ import com.example.assignment2.ui.video.VideoPlayerScreen
 import com.example.assignment2.ui.audio.AudioPlayerScreen
 import com.example.assignment2.DrawerDestinations
 import com.example.assignment2.ui.broadcast.CustomReceiverScreen
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun NavGraph(navController: NavHostController, openDrawer: () -> Unit) {
@@ -41,7 +43,8 @@ fun NavGraph(navController: NavHostController, openDrawer: () -> Unit) {
             BatteryReceiverScreen(navController = navController)
         }
         composable("custom_receiver_screen/{message}") { backStackEntry ->
-            val message = backStackEntry.arguments?.getString("message") ?: ""
+            val rawMessage = backStackEntry.arguments?.getString("message") ?: ""
+            val message = URLDecoder.decode(rawMessage, StandardCharsets.UTF_8.toString())  // ✅ decode it!
             CustomReceiverScreen(message = message)
         }
 
