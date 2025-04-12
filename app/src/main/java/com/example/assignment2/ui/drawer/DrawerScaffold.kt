@@ -1,4 +1,4 @@
-package com.example.assignment2.ui
+package com.example.assignment2.ui.drawer
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*

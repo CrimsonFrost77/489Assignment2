@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.assignment2.navigation.NavGraph
-import com.example.assignment2.ui.DrawerScaffold
+import com.example.assignment2.ui.drawer.DrawerScaffold
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -65,6 +65,8 @@ dependencies {
     implementation(libs.coil.compose)
     implementation (libs.androidx.localbroadcastmanager)
     implementation(libs.coil.compose.v222)
+    implementation(libs.androidx.material.icons.extended)
+
 
 
 }
